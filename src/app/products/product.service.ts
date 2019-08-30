@@ -20,10 +20,10 @@ export class ProductService {
         );
     }
 
-    getProductDetails(id: number): any {
+    getProductDetails(id: number): Observable<IProduct | undefined>  {
         return this.getProducts()
             .pipe(
-                map(products => products.find(prod => prod.productId === id))
+                map((products: IProduct[]) => products.find(prod => prod.productId === id))
             );
     }
 
