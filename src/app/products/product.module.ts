@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './product-list.component';
 import { ConvertToSpacesPice } from '../shared/converted-to-spaces.pipe';
 import { ProductDetailComponent } from './product-detail.component';
-import { RouterModule } from '@angular/router';
-import { ProducDetailGuard } from './produc-detail.guard';
 import { SharedModule } from '../shared/shared.module';
+import { ProductRoutingModule } from './product-routing.module';
 
 
 
@@ -17,13 +16,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     SharedModule,
-    RouterModule.forChild([
-      { path: 'products', component: ProductListComponent },
-      { path: 'products/:id',
-        canActivate: [ProducDetailGuard],
-        component: ProductDetailComponent
-      }
-    ])
+    ProductRoutingModule
   ]
 })
 export class ProductModule { }
